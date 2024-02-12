@@ -8,15 +8,21 @@ const AddNewExpense = () => {
         <div className="new-expense__controls">
           <div className="new-expense__control">
             <label>Title</label>
-            <input />
+            <input required placeholder="Title" />
           </div>
           <div className="new-expense__control">
             <label>Price</label>
-            <input />
+            <input
+              required
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="Price"
+            />
           </div>
           <div className="new-expense__control">
             <label>Date</label>
-            <input />
+            <input required type="date" min="2022-01-01" max="2026-12-31" />
           </div>
         </div>
         <div className="new-expense__actions">
