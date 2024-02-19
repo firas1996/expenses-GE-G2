@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./AddNewExpense.css";
-const NewExpenseForm = ({ formHandler }) => {
+let id = 5;
+const NewExpenseForm = ({ formHandler, getData }) => {
   //   const [title, setTitle] = useState("");
   //   const [price, setPrice] = useState("");
   //   const [date, setDate] = useState("");
@@ -43,7 +44,13 @@ const NewExpenseForm = ({ formHandler }) => {
     // console.log(title);
     // console.log(price);
     // console.log(date);
-    console.log(inputs);
+    getData({
+      id: id,
+      title: inputs.title,
+      date: new Date(inputs.date),
+      price: +inputs.price,
+    });
+    id++;
     setInputs({
       title: "",
       price: "",

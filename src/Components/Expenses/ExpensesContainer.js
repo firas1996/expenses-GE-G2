@@ -10,7 +10,7 @@ const ExpensesContainer = ({ expensesData }) => {
           <ExpenseItem
             title={expense.title}
             price={expense.price}
-            date={expense.data}
+            date={expense.date}
             // key={expense.id}
           />
         );

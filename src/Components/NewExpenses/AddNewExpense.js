@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./AddNewExpense.css";
 import NewExpenseForm from "./NewExpenseForm";
 
-const AddNewExpense = () => {
+const AddNewExpense = ({ getData }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openFormHandler = () => {
@@ -18,7 +18,7 @@ const AddNewExpense = () => {
   return (
     <div className="new-expense">
       {isOpen ? (
-        <NewExpenseForm formHandler={formHandler} />
+        <NewExpenseForm getData={getData} formHandler={formHandler} />
       ) : (
         <button onClick={formHandler}>Add New Expense</button>
       )}
