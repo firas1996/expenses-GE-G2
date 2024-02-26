@@ -32,7 +32,7 @@ function App() {
   const [expensesData, setExpensesData] = useState(oldData);
   const getData = (data) => {
     setExpensesData((prevState) => {
-      return [...prevState, data];
+      return [data, ...prevState];
     });
   };
   console.log(expensesData);

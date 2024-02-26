@@ -3,7 +3,7 @@ import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
 const ExpenseItem = ({ title, price, date }) => {
-  // const {title,price,date}= props
+  console.log(title);
   const [myTitle, setMyTitle] = useState(title);
   const changeHandler = () => {
     // myTitle = "";
