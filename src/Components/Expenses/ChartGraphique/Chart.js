@@ -1,21 +1,12 @@
 import "./Chart.css";
 import ChartBar from "./ChartBar";
 
-const Chart = () => {
+const Chart = ({ chartList }) => {
   return (
     <div className="chart">
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
-      <ChartBar />
+      {chartList.map((item) => {
+        return <ChartBar label={item.label} value={item.value} />;
+      })}
     </div>
   );
 };
