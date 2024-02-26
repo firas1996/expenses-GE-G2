@@ -1,10 +1,12 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import "./ExpensesContainer.css";
+import ChartData from "./ChartGraphique/ChartData";
 
 const ExpensesContainer = ({ expensesData }) => {
   return (
     <div className="expenses">
+      <ChartData />
       {expensesData.map((expense) => {
         return (
           <ExpenseItem
