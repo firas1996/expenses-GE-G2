@@ -28,7 +28,6 @@ const ChartData = ({ expensesData }) => {
   const total = values.reduce((a, b) => {
     return a + b;
   });
-  console.log(max);
   return <Chart max={max} total={total} chartList={chartList} />;
 };
 

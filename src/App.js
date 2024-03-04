@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ExpensesContainer from "./Components/Expenses/ExpensesContainer";
 import AddNewExpense from "./Components/NewExpenses/AddNewExpense";
+import MyFrag from "./Components/MyFrag";
 
 function App() {
   const oldData = [
@@ -35,12 +36,11 @@ function App() {
       return [data, ...prevState];
     });
   };
-  console.log(expensesData);
   return (
-    <div>
+    <>
       <AddNewExpense getData={getData} />
       <ExpensesContainer expensesData={expensesData} />
-    </div>
+    </>
   );
 }
 

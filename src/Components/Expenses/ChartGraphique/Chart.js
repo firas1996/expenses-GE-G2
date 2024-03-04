@@ -11,6 +11,7 @@ const Chart = ({ chartList, max, total }) => {
             total={total}
             label={item.label}
             value={item.value}
+            key={item.label}
           />
         );
       })}
