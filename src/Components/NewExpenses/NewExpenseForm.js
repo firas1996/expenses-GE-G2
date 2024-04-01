@@ -59,6 +59,7 @@ const NewExpenseForm = ({ formHandler, getData }) => {
       validate("title", inputs.title);
       validate("price", inputs.price);
       validate("date", inputs.date);
+      return;
     }
     getData({
       id: id,
