@@ -46,7 +46,13 @@ const NewExpenseForm = ({ formHandler, getData }) => {
   };
   const validate = (name, value) => {
     if (value.trim().length === 0) {
-      setValidateImputs({ ...validateImputs, [name]: false });
+      setValidateImputs((prevState) => {
+        return { ...prevState, [name]: false };
+      });
+    } else {
+      setValidateImputs((prevState) => {
+        return { ...prevState, [name]: true };
+      });
     }
   };
   const submitHandler = (event) => {
@@ -72,6 +78,11 @@ const NewExpenseForm = ({ formHandler, getData }) => {
       title: "",
       price: "",
       date: "",
+    });
+    setValidateImputs({
+      title: true,
+      price: true,
+      date: true,
     });
   };
   return (
