@@ -10,6 +10,11 @@ const NewExpenseForm = ({ formHandler, getData }) => {
     price: "",
     date: "",
   });
+  const [validateImputs, setValidateImputs] = useState({
+    title: true,
+    price: true,
+    date: true,
+  });
   const titleChanger = (event) => {
     // setTitle(event.target.value);
     // setTitle((prevState) => {
@@ -39,11 +44,22 @@ const NewExpenseForm = ({ formHandler, getData }) => {
       return { ...prevState, [name]: value };
     });
   };
+  const validate = (name, value) => {
+    if (value.trim().length === 0) {
+      setValidateImputs({ ...validateImputs, [name]: false });
+    }
+  };
   const submitHandler = (event) => {
     event.preventDefault();
-    // console.log(title);
-    // console.log(price);
-    // console.log(date);
+    if (
+      inputs.title.trim().length === 0 ||
+      inputs.price.trim().length === 0 ||
+      inputs.date.trim().length === 0
+    ) {
+      validate("title", inputs.title);
+      validate("price", inputs.price);
+      validate("date", inputs.date);
+    }
     getData({
       id: id,
       title: inputs.title,
@@ -63,7 +79,8 @@ const NewExpenseForm = ({ formHandler, getData }) => {
         <div className="new-expense__control">
           <label>Title</label>
           <input
-            required
+            // required
+            style={{ borderColor: validateImputs.title ? "#ccc" : "red" }}
             placeholder="Title"
             onChange={handelInputs}
             value={inputs.title}
@@ -73,7 +90,8 @@ const NewExpenseForm = ({ formHandler, getData }) => {
         <div className="new-expense__control">
           <label>Price</label>
           <input
-            required
+            // required
+            style={{ borderColor: validateImputs.price ? "#ccc" : "red" }}
             type="number"
             min="0"
             step="0.01"
@@ -86,7 +104,8 @@ const NewExpenseForm = ({ formHandler, getData }) => {
         <div className="new-expense__control">
           <label>Date</label>
           <input
-            required
+            // required
+            style={{ borderColor: validateImputs.date ? "#ccc" : "red" }}
             onChange={handelInputs}
             value={inputs.date}
             type="date"
